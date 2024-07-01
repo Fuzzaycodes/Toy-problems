@@ -1,4 +1,21 @@
+const prompt = require('prompt-sync')();
+
+let salaryInput = prompt('Enter salary: ');
+
+let benefitsInput = prompt('Enter benefits :')
+
+let benefits = parseFloat(benefitsInput);
+
+let basicSalary = parseFloat(salaryInput);
+
 function calculateNetSalary(basicSalary, benefits) {
+
+    if (basicSalary < 0) {
+        console.log("Error: salary cannot be negative");
+        return false; // Return false to indicate validation failure
+    }
+    return true; // Return true to indicate validation success
+}
     
     const taxBands = [
         { min: 0, max: 288000, rate: 0.1 },
@@ -64,7 +81,7 @@ function calculateNetSalary(basicSalary, benefits) {
         let tax = 0;
         for (let band of taxBands) {
             if (income > band.max) {
-                tax += (band.max - band.min + 1) * band.rate;
+                tax += (band.max - band.min +1) * band.rate;
             } else if (income > band.min) {
                 tax += (income - band.min + 1) * band.rate;
                 break;
@@ -81,7 +98,7 @@ function calculateNetSalary(basicSalary, benefits) {
             }
         }
         return nhifBands[nhifBands.length - 1].deduction;    }
-}
 
 
-calculateNetSalary( ); 
+
+calculateNetSalary(basicSalary,benefits ); 

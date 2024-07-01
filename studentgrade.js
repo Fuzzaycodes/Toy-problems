@@ -1,14 +1,10 @@
-const readline = require('readline');
+const prompt = require('prompt-sync')();
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
+let marksInput = prompt('enter marks :');
 
-function calculateGrade() {
-    rl.question("Enter the student's marks (between 0 and 100): ", function(answer) {
-        let marks = parseFloat(answer);
+let marks = parseFloat(marksInput);
 
+function calculateGrade(marks){
         if (isNaN(marks) || marks < 0 || marks > 100) {
             console.log("Error: Marks should be between 0 and 100");
         } else {
@@ -28,8 +24,7 @@ function calculateGrade() {
             console.log(`The grade for ${marks} marks is: ${grade}`);
         }
 
-        rl.close();
-    });
-}
+        
+    }
 
-calculateGrade();
+calculateGrade(marks);

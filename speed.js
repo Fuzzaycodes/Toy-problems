@@ -1,6 +1,14 @@
+const prompt = require('prompt-sync')();
+
+let speedInput = prompt('enter speed :');
+
+let speed = parseFloat(speedInput);
+
 function checkSpeed(speed) {
     const speedLimit = 70;
+
     const kmPerDemeritPoint = 5;
+    
     const pointsThreshold = 12;
 
     if (speed < speedLimit) {
@@ -20,5 +28,5 @@ function checkSpeed(speed) {
 }
 
 
-checkSpeed(70); 
+checkSpeed(speed); 
 
